@@ -1,0 +1,169 @@
+>>> 
+---TESTS---
+
+---AFFICHAGE DES COMPLEXES ET VERIFICATIONS---
+
+c1= <__main__.Complexe object at 0x02E68550>
+c1 isCartesien ? True
+c1 isPolaire ? False
+ 
+p1= <__main__.Complexe object at 0x02E947D0>
+p1 isCartesien ? False
+p1 isPolaire ? True
+ 
+cartesien(c1)= (10, 20)
+cartesien(c2)= (20, 10)
+ 
+cartesien(c_neutre_add)= (0, 0)
+cartesien(c_neutre_mul)= (1, 0)
+ 
+polaire(c1)= n'est pas un polaire
+polaire(c2)= n'est pas un polaire
+polaire(cartesienAPolaire(c1))= (22.360679774997898, 1.1071487177940904)
+polaire(cartesienAPolaire(c2))= (22.360679774997898, 0.4636476090008061)
+ 
+cartesien(p1)= n'est pas un cartesien
+cartesien(p2)= n'est pas un cartesien
+cartesien(polaireACartesien(p1))= (-20.008141849567856, 22.353394814380465)
+cartesien(polaireACartesien(p2))= (6.170057995503361, -39.52126496371447)
+polaire(p1)= (30, 40)
+polaire(p2)= (40, 30)
+
+
+---OPPOSE---
+
+oppose(c1).cartesien= (-10, -20)
+oppose(p1).polaire= n'est pas un polaire
+oppose(p1).cartesien= (20.008141849567856, -22.353394814380465)
+oppose(polaireACartesien(p1)).cartesien= (20.008141849567856, -22.353394814380465)
+cartesienAPolaire(oppose(p1)).polaire= (30.0, -0.8407044966673121)
+cartesienAPolaire(oppose(polaireACartesien(p1))).polaire= (30.0, -0.8407044966673121)
+
+
+---INVERSE---
+
+inverse(c1)= (0.02, -0.04)
+polaireACartesien(inverse(cartesienAPolaire(c1)))= (0.020000000000000004, -0.04)
+inverse(p1)= (0.03333333333333333, -40)
+cartesienAPolaire(inverse(polaireACartesien(p1)))= (0.03333333333333334, 0.8407044966673121)
+
+
+---CONJUGUE---
+
+conjugue(c1)= (10, -20)
+conjugue(p1)= n'est pas un polaire
+conjugue(p1)= (-20.008141849567856, -22.353394814380465)
+conjugue(polaireACartesien(p1)).cartesien= (-20.008141849567856, -22.353394814380465)
+cartesienAPolaire(conjugue(p1)).polaire= (30.0, 0.8407044966673121)
+cartesienAPolaire(conjugue(polaireACartesien(p1))).polaire= (30.0, 0.8407044966673121)
+
+
+---ADDITION (ADD)---
+
+add(c1+c2)= (30, 30)
+add(p1+p2)= (22.050585711416243, 1.5367982104439257)
+ 
+add(c1+c_neutre_add)= (10, 20)
+ 
+add(c1+p1)= (-10.008141849567856, 42.353394814380465)
+add(c1+polaireACartesien(p1))= (-10.008141849567856, 42.353394814380465)
+ 
+add(p1+c1)= (43.51979958115456, 1.539467233713441)
+add(p1+cartesienAPolaire(c1))= (43.51979958115456, 1.539467233713441)
+
+
+---MULTIPLICATION (MUL)---
+
+mul(c1*c2)= (0, 500)
+mul(p1*p2)= (1200, 70)
+ 
+mul(c1*c_neutre_mul)= (10, 20)
+ 
+mul(c1+p1)= (-647.1493147832879, -176.6288888475525)
+mul(c1+polaireACartesien(p1))= (-647.1493147832879, -176.6288888475525)
+ 
+mul(p1+c1)= (670.820393249937, 41.10714871779409)
+mul(p1+cartesienAPolaire(c1))= (670.820393249937, 41.10714871779409)
+
+
+---SOUSTRACTION (SUB)---
+
+sub(c1-c2)= (-10, 10)
+sub(p1-p2)= n'est pas un polaire
+sub(p1-p2).cartesien= (759.9830437035599, 928.668817869467)
+ 
+sub(c1*c_neutre_add)= (10, 20)
+ 
+sub(c1-p1)= (30.008141849567856, -2.353394814380465)
+sub(c1-polaireACartesien(p1))= (30.008141849567856, -2.353394814380465)
+ 
+sub(p1-c1)= n'est pas un polaire
+sub(p1-cartesienAPolaire(c1))= n'est pas un polaire
+sub(p1-c1).cartesien= (-647.1493147832879, -176.6288888475525)
+sub(p1-cartesienAPolaire(c1)).cartesien= (-647.149314783288, -176.62888884755242)
+
+
+---DIVISION (TRUEDIV)---
+
+div(c1/c2)= (0.8, 0.6000000000000001)
+div(p1/p2)= n'est pas un polaire
+div(p1/p2).cartesien= (-0.6293036468073393, -0.4080158331670273)
+ 
+div(c1/p1)= (0.2744294197688119, -0.6929964279279576)
+div(c1/polaireACartesien(p1))= (0.2744294197688119, -0.6929964279279576)
+ 
+div(p1/c1)= n'est pas un polaire
+div(p1/cartesienAPolaire(c1))= n'est pas un polaire
+div(p1/c1).cartesien= (0.49397295558386145, 1.2473935702703236)
+div(p1/cartesienAPolaire(c1)).cartesien= (0.4939729555838613, 1.2473935702703236)
+
+
+---PUISSANCE COMPLEXE (POW)---
+
+pow(c1,c2)= (-9.653287000000012e+26, -1.4769839999999834e+26)
+pow(p1,p2)= (-77231372.50147346, 1297645257.3104458)
+pow(c1,p1)= (-9.855320922792457e-28, 1.5989417908004768e-28)
+pow(p1,c1)= (-310182235005032.56, -502459372673336.4)
+
+
+---INFERIEUR (LT)---
+
+lt(c1<c2)= True
+lt(c1<c_neutre_mul)= False
+lt(c_neutre_mul<c2)= True
+lt(c_neutre_add<c_neutre_mul)= True
+ 
+lt(p1<p2)= True
+lt(c1<p1)= False
+lt(p1<c1)= True
+
+
+---EGAL (EQU)---
+
+equ(c1==c1)= True
+equ(c1==c2)= False
+equ(p1==p1)= True
+equ(p1==p2)= False
+equ(c1==p1)= False
+
+
+---LISTE---
+
+liste :
+(10, 20)
+(20, 10)
+(0, 0)
+(1, 0)
+ 
+liste classee :
+(0, 0)
+(1, 0)
+(10, 20)
+(20, 10)
+ 
+c2= (20, 10)
+c2 dans liste ? True
+c3= (3, 3)
+c3 dans liste ? False
+ 
+---FIN DE TESTS---
